@@ -32,7 +32,7 @@ var upload = multer({
 //get the product
 router.get('/', async (req, res) => {
   let products = await Product.find();
-  return res.send(products);
+  return res.json(products);
 });
 
 //Insert a Product
@@ -44,6 +44,6 @@ router.post('/', upload.single('picture'), async (req, res) => {
   product.price = req.body.price;
   product.picture = req.file.filename;
   await product.save();
-  return res.json(product);
+  return res.send(product);
 });
 module.exports = router;

@@ -13,6 +13,7 @@ const LowBudgetPage = () => {
       .get('http://localhost:4000/api/products')
       .then((res) => {
         setMenuData(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
