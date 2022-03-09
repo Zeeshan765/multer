@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 let router = express.Router();
 const Product = require('../models/product');
 const multer = require('multer');
-const DIR = './public/';
+//const DIR = './public/';
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, DIR);
+    cb(null, './public');
   },
   filename: (req, file, cb) => {
     const filename = file.originalname.toLowerCase().split(' ').join('-');
@@ -44,6 +44,6 @@ router.post('/', upload.single('picture'), async (req, res) => {
   product.price = req.body.price;
   product.picture = req.file.filename;
   await product.save();
-  return res.send(product);
+  return res.json(product);
 });
 module.exports = router;
