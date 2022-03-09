@@ -10,7 +10,7 @@ const SingleLowBudget = ({ data }) => {
       <div className='product-box'>
         <div className='upper-box'>
           <img
-            src={'http://localhost:4000/api/products' + data.picture}
+            src={'http://localhost:4000/' + data.picture}
             width='100%'
             style={{ height: '20rem' }}
             alt=''
