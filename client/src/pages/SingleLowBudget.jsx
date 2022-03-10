@@ -9,12 +9,7 @@ const SingleLowBudget = (props) => {
     <>
       <div className='product-box'>
         <div className='upper-box'>
-          <img
-            src={'http://localhost:4000/' + props.product.picture}
-            width='100%'
-            style={{ height: '20rem' }}
-            alt=''
-          />
+          <img src={'http://localhost:4000/' + props.product.picture} alt='' />
         </div>
         <div className='lower-box'>
           <h3>{props.product.name}</h3>
