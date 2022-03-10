@@ -6,9 +6,9 @@ import budgetdata from './budgetdata';
 
 const LowBudgetPage = () => {
   //const [menuData, setMenuData] = useState(budgetdata);
-  const [menuData, setMenuData] = React.useState([]);
+  const [products, setProducts] = React.useState([]);
 
-  const getData = () => {
+  /*const getData = () => {
     axios
       .get('http://localhost:4000/api/products')
       .then((res) => {
@@ -20,7 +20,18 @@ const LowBudgetPage = () => {
       });
   };
   // getData();
-  React.useEffect(getData, []);
+  React.useEffect(getData, []);*/
+  React.useEffect(() => {
+    axios
+      .get('http://localhost:4000/api/products')
+      .then((res) => {
+        setProducts(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   console.log('Inside Products Component');
   return (
     <>
@@ -31,8 +42,8 @@ const LowBudgetPage = () => {
         {/* .map((data, index) => ( */}
         {/* <SingleLowBudget key={index} data={data} /> */}
         {/* ))} */}
-        {menuData.map((data, index) => (
-          <SingleLowBudget key={index} data={data} />
+        {products.map((product, index) => (
+          <SingleLowBudget key={index} product={product} />
         ))}
       </div>
     </>

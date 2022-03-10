@@ -3,27 +3,27 @@ import './SingleLowBudget.css';
 import { addProduct } from '../redux/cartRedux';
 import { useDispatch } from 'react-redux';
 
-const SingleLowBudget = ({ data }) => {
+const SingleLowBudget = (props) => {
   const dispatch = useDispatch();
   return (
     <>
       <div className='product-box'>
         <div className='upper-box'>
           <img
-            src={'http://localhost:4000/' + data.picture}
+            src={'http://localhost:4000/' + props.product.picture}
             width='100%'
             style={{ height: '20rem' }}
             alt=''
           />
         </div>
         <div className='lower-box'>
-          <h3>{data.name}</h3>
-          <h4>{data.price}</h4>
-          <p>{data.description}</p>
+          <h3>{props.product.name}</h3>
+          <h4>{props.product.price}</h4>
+          <p>{props.product.description}</p>
           <button
             className='btn-1'
             onClick={() => {
-              dispatch(addProduct(data));
+              dispatch(addProduct(props.product));
             }}
           >
             Add To Custom
