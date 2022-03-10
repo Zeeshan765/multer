@@ -10,7 +10,7 @@ const SingleCart = ({ data }) => {
     <>
       <div className='product-box'>
         <div className='upper-box'>
-          <img src={data.image} alt='' />
+          <img src={'http://localhost:4000/public/' + data.picture} alt='' />
         </div>
         <div className='lower-box'>
           <h3>{data.name}</h3>

@@ -5,15 +5,15 @@ import axios from 'axios';
 const NewProduct = () => {
   const [name, setName] = React.useState();
   const [price, setPrice] = React.useState();
-  const [picture, setPicture] = React.useState();
-  console.log({ name, price, picture });
+  const [image, setImage] = React.useState();
+  console.log({ name, price, image });
 
   const handleproduct = (e) => {
     e.preventDefault();
     let formData = new FormData();
     formData.append('name', name);
     formData.append('price', price);
-    formData.append('picture', picture);
+    formData.append('image', image);
     axios
       .post('http://localhost:4000/api/products', formData)
       .then((data) => {
@@ -51,7 +51,7 @@ const NewProduct = () => {
           type='file'
           className='form-input'
           onChange={(e) => {
-            setPicture(e.target.files[0]);
+            setImage(e.target.files[0]);
           }}
         />
         <br />

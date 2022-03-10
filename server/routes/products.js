@@ -9,8 +9,9 @@ const storage = multer.diskStorage({
     cb(null, './public');
   },
   filename: (req, file, cb) => {
-    const filename = file.originalname.toLowerCase().split(' ').join('-');
-    cb(null, mongoose.Types.ObjectId() + '-' + filename);
+    const fileName = file.originalname.toLowerCase().split(' ').join('-');
+    cb(null, mongoose.Types.ObjectId() + '-' + fileName);
+    //cb(null, file.originalname);
   },
 });
 var upload = multer({
@@ -37,7 +38,7 @@ router.get('/', async (req, res) => {
 
 //Insert a Product
 
-router.post('/', upload.single('picture'), async (req, res) => {
+router.post('/', upload.single('image'), async (req, res) => {
   console.log(req.file);
   let product = new Product();
   product.name = req.body.name;
