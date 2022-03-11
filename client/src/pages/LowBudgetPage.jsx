@@ -32,7 +32,7 @@ const LowBudgetPage = () => {
         console.log(err);
       });
   }, []);
-  console.log('Inside Products Component');
+  // console.log('Inside Products Component');
   return (
     <>
       <h1>Low budgetPage</h1>
@@ -42,9 +42,11 @@ const LowBudgetPage = () => {
         {/* .map((data, index) => ( */}
         {/* <SingleLowBudget key={index} data={data} /> */}
         {/* ))} */}
-        {products.map((product, index) => (
-          <SingleLowBudget key={index} product={product} />
-        ))}
+        {products
+          .filter((product) => product.category === 'low')
+          .map((product, index) => (
+            <SingleLowBudget key={index} product={product} />
+          ))}
       </div>
     </>
   );

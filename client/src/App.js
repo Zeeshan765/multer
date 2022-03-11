@@ -17,6 +17,7 @@ function App() {
     <div className='App'>
       <NewProduct />
       <LowBudgetPage />
+      <HighBudgetPage />
       <Cart />
     </div>
   );

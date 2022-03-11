@@ -2,28 +2,30 @@ import React from 'react';
 import './SingleHighBudget.css';
 import { addProduct } from '../redux/cartRedux';
 import { useDispatch } from 'react-redux';
-//<img src={data.picture} alt='meeeeee' />
-//width="100%"
-//style={{ height: "20rem" }}
-const SingleHighBudget = ({ data }) => {
+
+const SingleHighBudget = (props) => {
+  // console.log('Prop check');
+  //console.log(props.product.picture);
+  console.log(props.product.category);
+
   const dispatch = useDispatch();
   return (
     <>
       <div className='product-box'>
         <div className='upper-box'>
           <img
-            src={'http://localhost:4000/api/products' + data.picture}
+            src={'http://localhost:4000/public/' + props.product.picture}
             alt=''
           />
         </div>
         <div className='lower-box'>
-          <h3>{data.name}</h3>
-          <h4>{data.price}</h4>
-
+          <h3>{props.product.name}</h3>
+          <h4>{props.product.price}</h4>
+          <p>{props.product.description}</p>
           <button
             className='btn-1'
             onClick={() => {
-              dispatch(addProduct(data));
+              dispatch(addProduct(props.product));
             }}
           >
             Add To Custom

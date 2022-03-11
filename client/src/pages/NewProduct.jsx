@@ -5,14 +5,16 @@ import axios from 'axios';
 const NewProduct = () => {
   const [name, setName] = React.useState();
   const [price, setPrice] = React.useState();
+  const [category, setCategory] = React.useState();
   const [image, setImage] = React.useState();
-  console.log({ name, price, image });
+  console.log({ name, price, category, image });
 
   const handleproduct = (e) => {
     e.preventDefault();
     let formData = new FormData();
     formData.append('name', name);
     formData.append('price', price);
+    formData.append('category', category);
     formData.append('image', image);
     axios
       .post('http://localhost:4000/api/products', formData)
@@ -43,6 +45,15 @@ const NewProduct = () => {
           className='form-input'
           onChange={(e) => {
             setPrice(e.target.value);
+          }}
+        />
+        <br />
+        <label htmlFor=''>Category</label>
+        <input
+          type='text'
+          className='form-input'
+          onChange={(e) => {
+            setCategory(e.target.value);
           }}
         />
         <br />

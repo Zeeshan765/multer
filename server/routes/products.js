@@ -43,6 +43,7 @@ router.post('/', upload.single('image'), async (req, res) => {
   let product = new Product();
   product.name = req.body.name;
   product.price = req.body.price;
+  product.category = req.body.category;
   product.picture = req.file.filename;
   await product.save();
   return res.send(product);

@@ -5,7 +5,9 @@ import { useDispatch } from 'react-redux';
 
 const SingleLowBudget = (props) => {
   // console.log('Prop check');
-  console.log(props.product.picture);
+  //console.log(props.product.picture);
+  console.log(props.product.category);
+
   const dispatch = useDispatch();
   return (
     <>
