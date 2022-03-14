@@ -2,6 +2,7 @@ import React from 'react';
 import './SingleCart.css';
 //import { addProduct } from '../redux/cartRedux';
 //import { useDispatch } from 'react-redux';
+//'http://localhost:4000/public/' +
 
 const SingleCart = ({ data }) => {
   //const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const SingleCart = ({ data }) => {
     <>
       <div className='product-box'>
         <div className='upper-box'>
-          <img src={'http://localhost:4000/public/' + data.picture} alt='' />
+          <img src={data.picture} alt='' />
         </div>
         <div className='lower-box'>
           <h3>{data.name}</h3>

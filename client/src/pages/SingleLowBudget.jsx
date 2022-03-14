@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 const SingleLowBudget = (props) => {
   // console.log('Prop check');
   //console.log(props.product.picture);
+  //'http://localhost:4000/public/' +
   console.log(props.product.category);
 
   const dispatch = useDispatch();
@@ -13,10 +14,7 @@ const SingleLowBudget = (props) => {
     <>
       <div className='product-box'>
         <div className='upper-box'>
-          <img
-            src={'http://localhost:4000/public/' + props.product.picture}
-            alt=''
-          />
+          <img src={props.product.picture} alt='' />
         </div>
         <div className='lower-box'>
           <h3>{props.product.name}</h3>
