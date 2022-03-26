@@ -6,8 +6,22 @@ let router = express.Router();
 //CREATE
 
 router.post('/', async (req, res) => {
-  const cart = new Cart();
-  cart.products = req.body.products;
+  console.log(req.body);
+  let cart = new Cart({
+    items: req.body,
+  });
+  //cart.productId = req.body.productId;
+  //cart.quantity = req.body.quantity;
+  // let id = req.body.productId;
+  // let value = req.body.quantity;
+  // console.log('id', id);
+  // console.log('quantity', value);
+  // //cart.items.push({ id, value });
+  // cart.items.push({
+  //   productId: req.body.productId,
+  //   quantity: req.body.quantity,
+  // });
+  console.log('cart :', cart);
   await cart.save();
   return res.send(cart);
 });

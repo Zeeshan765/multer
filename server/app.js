@@ -35,7 +35,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/products', productsRouter);
-app.use('/api/carts', cartRouter);
+app.use('/api/data/carts', cartRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

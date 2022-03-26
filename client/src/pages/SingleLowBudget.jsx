@@ -9,6 +9,8 @@ import axios from 'axios';
 
 const SingleLowBudget = (props) => {
   const { product } = props;
+  //console.log(product._id);
+  const productId = product._id;
   const dispatch = useDispatch();
   // const handlecart = (e) => {
   //   e.preventDefault();
@@ -16,9 +18,37 @@ const SingleLowBudget = (props) => {
   // };
   const data = useSelector(getCartItems);
   const handlecart = async () => {
-    dispatch(addProduct(product));
+    //alert(p_id);
+    console.log(productId);
 
-    axios.post('http://localhost:4000/api/carts', { data });
+    const Data = {
+      productId: productId,
+    };
+    axios
+      .post('http://localhost:4000/api/data/carts', Data)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+
+    // try {
+    //   let response = await fetch('http://localhost:4000/api/data/carts', {
+    //     method: 'post',
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data',
+    //     },
+    //     body: productId,
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    //   return error;
+    // }
+
+    // dispatch(addProduct(product));
+
+    // axios.post('http://localhost:4000/api/carts', { data });
   };
 
   // axios
