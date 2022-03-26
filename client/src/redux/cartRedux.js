@@ -9,6 +9,9 @@ const cartSlice = createSlice({
     addProduct: (state, action) => {
       //alert(action.payload);
       state.products.push(action.payload);
+      state.products.map((p) => {
+        console.log(p);
+      });
       //state.total += action.payload.price * action.payload.quantity;
     },
   },
